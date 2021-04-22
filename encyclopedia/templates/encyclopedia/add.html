@@ -1,0 +1,29 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+{% if available == True %}
+<div class="alert alert-danger" role="alert">
+    Title already exists. Please choose a different title.
+
+</div>
+{%endif%}
+
+    <div class="addPage" style="padding-top: 100px;">
+        <form method="POST">
+            {%csrf_token%}
+            <input type="text" class="form-control" name="title" style="width: 80%;" placeholder="Title">
+
+            <textarea name="content" class="form-control" id="" rows="15" 
+                style="width: 80%; margin-top: 50px;" placeholder="Enter text in Markdown"></textarea>
+
+            <button type="submit" class="btn-lg btn-outline-primary" style="margin-top: 20px;">Submit</button>
+
+        </form>
+    </div>
+
+{% endblock %}

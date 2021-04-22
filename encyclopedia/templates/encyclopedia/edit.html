@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="addPage" style="padding-top: 100px;">
+        <form method="POST">
+            {%csrf_token%}
+            <h1>{{title}}</h1>
+            
+            <textarea name="editedContent" class="form-control" id="" rows="15" 
+                style="width: 80%; margin-top: 50px;">{{content}}</textarea>
+
+            <button type="submit" class="btn-lg btn-outline-primary" style="margin-top: 20px;">Submit</button>
+
+        </form>
+    </div>
+
+{% endblock %}
